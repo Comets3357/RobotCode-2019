@@ -4,11 +4,15 @@
 void Robot::RobotInit()
 {
     subsystem.RobotInit();
+    drivebase.RobotInit();
+    intake.RobotInit();
 }
 
 void Robot::RobotPeriodic()
 {
     subsystem.RobotPeriodic(robotData, robotData.subsystemData);
+    drivebase.RobotPeriodic(robotData, robotData.drivebaseData);
+    intake.RobotPeriodic(robotData, robotData.intakeData);
 }
 
 void Robot::AutonomousInit()
@@ -28,12 +32,13 @@ void Robot::TeleopInit()
 
 void Robot::TeleopPeriodic()
 {
-    
+    controller.TeleopPeriodic(robotData, robotData.controllerData, robotData.controlData);
 }
 
 void Robot::DisabledInit()
 {
     subsystem.DisabledInit();
+    drivebase.DisabledInit();
 }
 
 void Robot::DisabledPeriodic() 

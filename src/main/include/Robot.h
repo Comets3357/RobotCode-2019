@@ -31,4 +31,6 @@ private:
 
     // subsystems
     Subsystem subsystem{};
+    Drivebase drivebase{};
+    Intake intake{};
 };
