@@ -18,6 +18,6 @@ public:
     void DisabledPeriodic(const RobotData &robotData, IntakeData &subsystemData); 
     void DisabledInit();
 private:
-    ctre::phoenix::motorcontrol::can::TalonSRX intakeDrive{intakeDriveDeviceID};
-    ctre::phoenix::motorcontrol::can::TalonSRX intakePivot{intakePivotDeviceID};
+    ctre::phoenix::motorcontrol::can::VictorSPX intakeDrive{intakeDriveDeviceID};
+    ctre::phoenix::motorcontrol::can::VictorSPX intakePivot{intakePivotDeviceID};
 };
