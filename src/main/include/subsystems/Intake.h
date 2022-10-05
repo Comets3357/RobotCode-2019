@@ -2,6 +2,7 @@
 
 #include "Constants.h"
 #include <ctre/Phoenix.h>
+#include <ctre/phoenix/sensors/CANCoder.h>
 
 struct RobotData;
 
@@ -17,7 +18,8 @@ public:
     void RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData);  
     void DisabledPeriodic(const RobotData &robotData, IntakeData &subsystemData); 
     void DisabledInit();
+
 private:
     ctre::phoenix::motorcontrol::can::VictorSPX intakeDrive{intakeDriveDeviceID};
-    ctre::phoenix::motorcontrol::can::VictorSPX intakePivot{intakePivotDeviceID};
+    ctre::phoenix::motorcontrol::can::TalonSRX intakePivot{intakePivotDeviceID};
 };

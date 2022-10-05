@@ -2,6 +2,8 @@
 #include "RobotData.h"
 #include <frc/smartdashboard/SmartDashboard.h>
 
+#define DEAD_ZONE 0.08
+
 
 void Drivebase::RobotInit()
 {
@@ -20,7 +22,7 @@ void Drivebase::RobotInit()
 
 void Drivebase::RobotPeriodic(const RobotData &robotData, DrivebaseData &subsystemData)
 {
-    if (robotData.controllerData.pLYStick > 0.08 || robotData.controllerData.pLYStick < -0.08)
+    if (robotData.controllerData.pLYStick > DEAD_ZONE || robotData.controllerData.pLYStick < -DEAD_ZONE)
     {
         dbL.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, robotData.controllerData.pRYStick * 0.5);
     }
@@ -28,7 +30,7 @@ void Drivebase::RobotPeriodic(const RobotData &robotData, DrivebaseData &subsyst
     {
         dbL.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, 0);
     }
-    if (robotData.controllerData.pRYStick > 0.08 || robotData.controllerData.pRYStick < -0.08)
+    if (robotData.controllerData.pRYStick > DEAD_ZONE || robotData.controllerData.pRYStick < -DEAD_ZONE)
     {
         dbR.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, robotData.controllerData.pLYStick * 0.5);
     }
