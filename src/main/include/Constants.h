@@ -10,4 +10,6 @@ static const int
 //intake:
 static const int
     intakePivotDeviceID = 11,
-    intakeDriveDeviceID = 12;
+    intakeDriveDeviceID = 12,
+    intakeTopDriveDeviceID = 21,
+    intakeElevatorDriveID = 22;
