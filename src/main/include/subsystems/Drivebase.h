@@ -17,7 +17,8 @@ class Drivebase
 public:
     void RobotInit();
     void RobotPeriodic(const RobotData &robotData, DrivebaseData &subsystemData);  
-    void DisabledPeriodic(const RobotData &robotData, DrivebaseData &subsystemData); 
+    void DisabledPeriodic(const RobotData &robotData, DrivebaseData &subsystemData);
+    void UpdateData(const RobotData &robotData, DrivebaseData &elevatorData);
     void DisabledInit();
 private:
     ctre::phoenix::motorcontrol::can::TalonSRX dbL{leftLeadDeviceID};

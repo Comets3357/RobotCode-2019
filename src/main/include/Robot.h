@@ -33,4 +33,5 @@ private:
     Subsystem subsystem{};
     Drivebase drivebase{};
     Intake intake{};
+    Elevator elevator{};
 };

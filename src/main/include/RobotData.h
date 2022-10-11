@@ -9,6 +9,8 @@
 
 #include "subsystems/Intake.h"
 
+#include "subsystems/Elevator.h"
+
 //could be separated into all separate files for the data *from* each subsystem
 //commented out variables are not in use
 struct RobotData
@@ -18,5 +20,6 @@ struct RobotData
     DrivebaseData drivebaseData;
     SubsystemData subsystemData;
     IntakeData intakeData;
+    ElevatorData elevatorData;
     
 };

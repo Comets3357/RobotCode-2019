@@ -6,6 +6,7 @@ void Robot::RobotInit()
     subsystem.RobotInit();
     drivebase.RobotInit();
     intake.RobotInit();
+    elevator.RobotInit();
 }
 
 void Robot::RobotPeriodic()
@@ -13,6 +14,7 @@ void Robot::RobotPeriodic()
     subsystem.RobotPeriodic(robotData, robotData.subsystemData);
     drivebase.RobotPeriodic(robotData, robotData.drivebaseData);
     intake.RobotPeriodic(robotData, robotData.intakeData);
+    elevator.RobotPeriodic(robotData, robotData.elevatorData);
 }
 
 void Robot::AutonomousInit()

@@ -13,3 +13,7 @@ static const int
     intakeDriveDeviceID = 12,
     intakeTopDriveDeviceID = 21,
     intakeElevatorDriveID = 22;
+//elevator:
+static const int
+    notElevatorWheelDeviceID = 21,
+    elevatorDriveDeviceID = 22;
