@@ -24,5 +24,5 @@ private:
     ctre::phoenix::motorcontrol::can::TalonSRX intakePivot{intakePivotDeviceID};
     ctre::phoenix::motorcontrol::can::VictorSPX intakeTopDrive{intakeTopDriveDeviceID};
 
-    int intakeTopDriveDelayCounter = 15;
+    int intakeTopDriveDelayCounter;
 };
