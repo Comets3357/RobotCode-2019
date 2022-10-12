@@ -46,4 +46,13 @@ void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData
         intakeDrive.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, 0);
         intakePivot.Set(ctre::phoenix::motorcontrol::ControlMode::Position, 0);
     }
+
+    if (robotData.controllerData.sRBumper)
+    {
+        intakeTopDrive.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, -0.4);
+    }
+    else
+    {
+        intakeTopDrive.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, 0);
+    }
 }
