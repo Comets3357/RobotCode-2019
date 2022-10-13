@@ -8,7 +8,11 @@ void Elevator::RobotInit()
     elevatorDrive.SetSelectedSensorPosition(0);
     //elevatorDrive.SetSensorPhase(true);
     elevatorDrive.ConfigSelectedFeedbackSensor(ctre::phoenix::motorcontrol::TalonSRXFeedbackDevice::QuadEncoder);
+<<<<<<< Updated upstream
     elevatorDrive.SetNeutralMode(ctre::phoenix::motorcontrol::NeutralMode::Brake);
+=======
+    elevatorDrive.SetNeutralMode(ctre::phoenix::motorcontrol::Brake);
+>>>>>>> Stashed changes
 }
 void Elevator::RobotPeriodic(const RobotData &robotData, ElevatorData &elevatorData)
 {
@@ -36,15 +40,15 @@ void Elevator::RobotPeriodic(const RobotData &robotData, ElevatorData &elevatorD
     {
         if(robotData.controllerData.sABtn) // Disc Set Positions
         {
-            elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, -1000); // Low
+            elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, -1670); // Low
         }
         else if (robotData.controllerData.sXBtn)
         {
-            elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, -2000); // Mid (Hendrik)
+            elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, -7898); // Mid (Hendrik)
         }
         else if (robotData.controllerData.sYBtn)
         {
-            elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, -3000); // High
+            elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, -14900);// High
         }
         else if (robotData.controllerData.sBBtn)
         {
