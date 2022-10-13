@@ -24,7 +24,7 @@ void Drivebase::RobotPeriodic(const RobotData &robotData, DrivebaseData &subsyst
 {
     if (robotData.controllerData.pLYStick > DEAD_ZONE || robotData.controllerData.pLYStick < -DEAD_ZONE)
     {
-        dbL.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, robotData.controllerData.pRYStick * 0.5);
+        dbL.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, robotData.controllerData.pRYStick * 0.9f);
     }
     else
     {
@@ -32,7 +32,7 @@ void Drivebase::RobotPeriodic(const RobotData &robotData, DrivebaseData &subsyst
     }
     if (robotData.controllerData.pRYStick > DEAD_ZONE || robotData.controllerData.pRYStick < -DEAD_ZONE)
     {
-        dbR.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, robotData.controllerData.pLYStick * 0.5);
+        dbR.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, robotData.controllerData.pLYStick * 0.9f);
     }
     else
     {
