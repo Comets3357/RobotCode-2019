@@ -12,7 +12,12 @@ static const int
     intakePivotDeviceID = 11,
     intakeDriveDeviceID = 12,
     intakeTopDriveDeviceID = 21,
-    intakeElevatorDriveID = 22;
+    intakeElevatorDriveDeviceID = 22,
+    
+    intakeClawInDeviceID = 2,
+    intakeClawOutDeviceID = 3,
+    intakeExtenderDeviceID = 4; //TODO
+
 //elevator:
 static const int
     notElevatorWheelDeviceID = 21,

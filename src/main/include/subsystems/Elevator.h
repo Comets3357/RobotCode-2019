@@ -14,7 +14,7 @@ struct ElevatorData
 
 class Elevator
 {
-    public:
+public:
     void RobotInit();
     void RobotPeriodic(const RobotData &robotData, ElevatorData &elevatorData);  
     void DisabledPeriodic(const RobotData &robotData, ElevatorData &elevatorData); 
@@ -22,6 +22,7 @@ class Elevator
     void UpdateData(const RobotData &robotData, ElevatorData &elevatorData);
     void Manual(const RobotData &robotData, ElevatorData &elevatorData);
     void DisabledInit();
-    private: 
-    ctre::phoenix::motorcontrol::can::TalonSRX elevatorDrive {elevatorDriveDeviceID};  
+
+private: 
+    ctre::phoenix::motorcontrol::can::TalonSRX elevatorDrive {intakeElevatorDriveDeviceID};  
 };

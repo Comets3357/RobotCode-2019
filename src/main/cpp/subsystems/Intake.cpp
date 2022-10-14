@@ -12,10 +12,6 @@ void Intake::RobotInit()
     intakePivot.Config_kD(0, 0.01);
     intakePivot.ConfigPeakOutputForward(0.6);
     intakePivot.ConfigPeakOutputReverse(-0.6);
-    // intakePivot.ConfigContinuousCurrentLimit(15);
-    // intakePivot.ConfigPeakCurrentLimit(25);
-    // intakePivot.ConfigPeakCurrentDuration(0);
-    // intakePivot.EnableCurrentLimit(true);
     intakePivot.ConfigSelectedFeedbackSensor(ctre::phoenix::motorcontrol::TalonSRXFeedbackDevice::QuadEncoder);
     intakePivot.SetSelectedSensorPosition(0);
     intakePivot.SetSensorPhase(true);
@@ -59,14 +55,16 @@ void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData
 
     if (robotData.controllerData.sLTrigger)
     {
-        solenoidIn.Set(frc::DoubleSolenoid::Value::kForward);
+        clawSolenoid.Set(frc::DoubleSolenoid::Value::kForward);
     }
     else if (robotData.controllerData.sXBtn)
     {  
-        solenoidIn.Set(frc::DoubleSolenoid::Value::kReverse);
+        clawSolenoid.Set(frc::DoubleSolenoid::Value::kReverse);
     }
     else
     {
-        solenoidIn.Set(frc::DoubleSolenoid::Value::kOff);
+        clawSolenoid.Set(frc::DoubleSolenoid::Value::kOff);
     }
+
+    extenderSolenoid.Set(robotData.controllerData.testAButton);
 }
