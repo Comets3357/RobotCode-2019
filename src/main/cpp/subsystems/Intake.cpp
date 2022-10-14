@@ -19,6 +19,7 @@ void Intake::RobotInit()
     intakePivot.ConfigSelectedFeedbackSensor(ctre::phoenix::motorcontrol::TalonSRXFeedbackDevice::QuadEncoder);
     intakePivot.SetSelectedSensorPosition(0);
     intakePivot.SetSensorPhase(true);
+    compressor.EnableDigital();
 }
 
 void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData)
@@ -54,5 +55,18 @@ void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData
     else
     {
         intakeTopDrive.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, 0);
+    }
+
+    if (robotData.controllerData.sLTrigger)
+    {
+        solenoidIn.Set(frc::DoubleSolenoid::Value::kForward);
+    }
+    else if (robotData.controllerData.sXBtn)
+    {  
+        solenoidIn.Set(frc::DoubleSolenoid::Value::kReverse);
+    }
+    else
+    {
+        solenoidIn.Set(frc::DoubleSolenoid::Value::kOff);
     }
 }
