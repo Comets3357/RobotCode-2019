@@ -66,5 +66,5 @@ void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData
         clawSolenoid.Set(frc::DoubleSolenoid::Value::kOff);
     }
 
-    extenderSolenoid.Set(robotData.controllerData.testAButton);
+    extendSolenoid.Set(robotData.controllerData.testAButton);
 }
