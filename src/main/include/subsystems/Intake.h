@@ -27,8 +27,13 @@ private:
     ctre::phoenix::motorcontrol::can::TalonSRX intakePivot{intakePivotDeviceID};
     ctre::phoenix::motorcontrol::can::VictorSPX intakeTopDrive{intakeTopDriveDeviceID};
     frc::Compressor compressor{0, frc::PneumaticsModuleType::CTREPCM};
+<<<<<<< HEAD
     frc::Solenoid extendSolenoid {frc::PneumaticsModuleType::CTREPCM, 3};
     frc::DoubleSolenoid clawSolenoid {frc::PneumaticsModuleType::CTREPCM, 2, 3};
+=======
+    frc::Solenoid extenderSolenoid{frc::PneumaticsModuleType::CTREPCM, intakeExtenderDeviceID};
+    frc::DoubleSolenoid clawSolenoid{frc::PneumaticsModuleType::CTREPCM, intakeClawInDeviceID, intakeClawOutDeviceID};
+>>>>>>> develop
 
     int intakeTopDriveDelayCounter;
 };
