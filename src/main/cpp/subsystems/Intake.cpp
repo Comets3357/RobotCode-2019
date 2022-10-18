@@ -59,14 +59,14 @@ void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData
 
     if (robotData.controllerData.sLTrigger)
     {
-        solenoidIn.Set(frc::DoubleSolenoid::Value::kForward);
+        clawSolenoid.Set(frc::DoubleSolenoid::Value::kForward);
     }
     else if (robotData.controllerData.sXBtn)
     {  
-        solenoidIn.Set(frc::DoubleSolenoid::Value::kReverse);
+        clawSolenoid.Set(frc::DoubleSolenoid::Value::kReverse);
     }
     else
     {
-        solenoidIn.Set(frc::DoubleSolenoid::Value::kOff);
+        clawSolenoid.Set(frc::DoubleSolenoid::Value::kOff);
     }
 }
