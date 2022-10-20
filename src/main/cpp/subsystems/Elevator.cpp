@@ -15,7 +15,7 @@ void Elevator::RobotInit()
 }
 void Elevator::RobotPeriodic(const RobotData &robotData, ElevatorData &elevatorData)
 {
-    frc::SmartDashboard::PutNumber("yourmother" , elevatorDrive.GetSelectedSensorPosition());
+    frc::SmartDashboard::PutNumber("elevatorPosition" , elevatorDrive.GetSelectedSensorPosition());
     UpdateData(robotData, elevatorData);
     if(robotData.controllerData.sLBumper) //  Ball Set Positions
     {

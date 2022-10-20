@@ -21,7 +21,6 @@ public:
     void RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData);  
     void DisabledPeriodic(const RobotData &robotData, IntakeData &subsystemData); 
     void DisabledInit();
-
 private:
     ctre::phoenix::motorcontrol::can::VictorSPX intakeDrive{intakeDriveDeviceID};
     ctre::phoenix::motorcontrol::can::TalonSRX intakePivot{intakePivotDeviceID};
@@ -30,4 +29,6 @@ private:
     frc::DoubleSolenoid extenderSolenoid{frc::PneumaticsModuleType::CTREPCM, intakeExtenderOutDeviceID, intakeExtenderInDeviceID};
     frc::DoubleSolenoid clawSolenoid{frc::PneumaticsModuleType::CTREPCM, intakeClawInDeviceID, intakeClawOutDeviceID};
     int intakeTopDriveDelayCounter;
+    bool solenoidExtended;
+    bool intakePivotDown;
 };
