@@ -22,7 +22,7 @@ void Elevator::RobotPeriodic(const RobotData &robotData, ElevatorData &elevatorD
         if(robotData.controllerData.sABtn)
         {
             elevatorDrive.SelectProfileSlot(0, 0);
-            elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, -1252); // Low
+            elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, -1670); // Low
         }
         else if (robotData.controllerData.sXBtn)
         {
@@ -45,7 +45,7 @@ void Elevator::RobotPeriodic(const RobotData &robotData, ElevatorData &elevatorD
         if(robotData.controllerData.sABtn) // Disc Set Positions
         {
             elevatorDrive.SelectProfileSlot(0, 0);
-            elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, -1670); // Low
+            elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, -1252); // Low
         }
         else if (robotData.controllerData.sXBtn)
         {
@@ -62,8 +62,7 @@ void Elevator::RobotPeriodic(const RobotData &robotData, ElevatorData &elevatorD
             elevatorDrive.SelectProfileSlot(1, 0);
             elevatorDrive.Set(ctre::phoenix::motorcontrol::ControlMode::Position, 0); // Zero
         }
-    }
-    
+    } 
 }
 
 void Elevator::Manual(const RobotData &robotData, ElevatorData &elevatorData)

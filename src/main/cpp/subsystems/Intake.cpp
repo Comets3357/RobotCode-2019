@@ -44,9 +44,10 @@ void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData
         intakePivot.Set(ctre::phoenix::motorcontrol::ControlMode::Position, 0);
     }
 
-    if (robotData.controllerData.sABtn)
+    if (robotData.controllerData.sABtn && !robotData.controllerData.sLBumper && !robotData.controllerData.sRBumper)
     {
         intakeTopDrive.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, -0.4);
+        intakeDrive.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, -0.4);
     }
     else
     {
@@ -57,14 +58,16 @@ void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData
     {
         clawSolenoid.Set(frc::DoubleSolenoid::Value::kForward);
     }
-    else if (robotData.controllerData.sXBtn)
-    {  
+    else if (robotData.controllerData.sXBtn && !robotData.controllerData.sLBumper && !robotData.controllerData.sRBumper)
+    {
+        extenderSolenoid.Set(frc::DoubleSolenoid::Value::kForward);
+    }
+    if (robotData.controllerData.sYBtn && !robotData.controllerData.sLBumper && !robotData.controllerData.sRBumper)
+    {
+        extenderSolenoid.Set(frc::DoubleSolenoid::Value::kReverse);
+    }
+    if (robotData.controllerData.sBBtn && !robotData.controllerData.sLBumper && !robotData.controllerData.sRBumper)
+    {
         clawSolenoid.Set(frc::DoubleSolenoid::Value::kReverse);
     }
-    else
-    {
-        clawSolenoid.Set(frc::DoubleSolenoid::Value::kOff);
-    }
-
-    extendSolenoid.Set(robotData.controllerData.testAButton);
 }

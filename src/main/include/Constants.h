@@ -16,7 +16,8 @@ static const int
     
     intakeClawInDeviceID = 2,
     intakeClawOutDeviceID = 3,
-    intakeExtenderDeviceID = 4; //TODO
+    intakeExtenderOutDeviceID = 4, //TODO
+    intakeExtenderInDeviceID = 1;
 
 //elevator:
 static const int
