@@ -25,10 +25,12 @@ private:
     ctre::phoenix::motorcontrol::can::VictorSPX intakeDrive{intakeDriveDeviceID};
     ctre::phoenix::motorcontrol::can::TalonSRX intakePivot{intakePivotDeviceID};
     ctre::phoenix::motorcontrol::can::VictorSPX intakeTopDrive{intakeTopDriveDeviceID};
+     ctre::phoenix::motorcontrol::can::TalonSRX elevatorDrive {intakeElevatorDriveDeviceID};
     frc::Compressor compressor{0, frc::PneumaticsModuleType::CTREPCM};
     frc::DoubleSolenoid extenderSolenoid{frc::PneumaticsModuleType::CTREPCM, intakeExtenderOutDeviceID, intakeExtenderInDeviceID};
     frc::DoubleSolenoid clawSolenoid{frc::PneumaticsModuleType::CTREPCM, intakeClawInDeviceID, intakeClawOutDeviceID};
     int intakeTopDriveDelayCounter;
     bool solenoidExtended;
     bool intakePivotDown;
+    
 };

@@ -22,20 +22,8 @@ void Intake::RobotInit()
 
 void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData)
 {
-    if (solenoidExtended == true)
-    {
-        if (intakePivotDown == true)
-        {
-            intakePivot.Set(ctre::phoenix::motorcontrol::ControlMode::Position, 220000);
-        }
-    }
-    else if (solenoidExtended == false)
-    {
-        intakePivot.Set(ctre::phoenix::motorcontrol::ControlMode::Position, 0);
-    }
     if (robotData.controllerData.sRTrigger)
     {
-        intakePivotDown = true;
         intakeDrive.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, 0.4);
         intakePivot.Set(ctre::phoenix::motorcontrol::ControlMode::Position, 220000);
         intakeTopDrive.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, 0);
@@ -56,7 +44,6 @@ void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData
 
         intakeDrive.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, 0);
         intakePivot.Set(ctre::phoenix::motorcontrol::ControlMode::Position, 0);
-        intakePivotDown = false;
     }
 
     if (robotData.controllerData.sABtn && !robotData.controllerData.sLBumper && !robotData.controllerData.sRBumper)
@@ -86,5 +73,20 @@ void Intake::RobotPeriodic(const RobotData &robotData, IntakeData &subsystemData
     if (robotData.controllerData.sBBtn && !robotData.controllerData.sLBumper && !robotData.controllerData.sRBumper)
     {
         clawSolenoid.Set(frc::DoubleSolenoid::Value::kReverse);
+    }
+    if (elevatorDrive.GetSelectedSensorPosition() < 50)
+    {
+        if (robotData.controllerData.sRTrigger || (solenoidExtended == true && intakePivot.GetSelectedSensorPosition() > 21000))
+        {
+            intakePivotDown = true;
+        }
+        else
+        {
+            intakePivotDown = false;
+        }
+    }
+    if (intakePivotDown == true)
+    {
+        intakePivot.Set(ctre::phoenix::motorcontrol::ControlMode::Position, 22000);
     }
 }

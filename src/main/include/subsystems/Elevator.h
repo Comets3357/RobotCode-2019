@@ -22,7 +22,6 @@ public:
     void UpdateData(const RobotData &robotData, ElevatorData &elevatorData);
     void Manual(const RobotData &robotData, ElevatorData &elevatorData);
     void DisabledInit();
-
 private: 
     ctre::phoenix::motorcontrol::can::TalonSRX elevatorDrive {intakeElevatorDriveDeviceID};  
 };
